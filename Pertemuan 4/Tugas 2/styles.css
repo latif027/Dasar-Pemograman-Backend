@@ -1,0 +1,224 @@
+/* styles.css — Ultra Modern Light Dashboard ✨ */
+
+/* ---------- Variables ---------- */
+:root {
+  --bg: #f7f9fc;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #14b8a6;
+  --accent-2: #3b82f6;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --transition: all 0.25s ease;
+  --font: "Poppins", "Inter", system-ui, sans-serif;
+}
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+/* ---------- Base ---------- */
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2.5rem;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: var(--transition);
+}
+
+/* Smooth fade on load */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Layout ---------- */
+.center-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 640px;
+  animation: fadeIn 0.6s ease both;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p.lead {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ---------- Forms ---------- */
+.form {
+  display: grid;
+  gap: 1.2rem;
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(20,184,166,0.15);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 6px 15px rgba(59,130,246,0.2);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(59,130,246,0.25);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* ---------- Dashboard Layout ---------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  animation: fadeIn 0.6s ease both;
+}
+
+/* ---------- Header ---------- */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+/* ---------- User Info ---------- */
+.user-bubble {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Grid Cards ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ---------- Footer ---------- */
+.small-muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  body { padding: 1.5rem; }
+  .center-card { padding: 1.5rem; }
+  .header-row { flex-direction: column; gap: 1rem; }
+}
