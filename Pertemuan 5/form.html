@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card small">
+  <h2>{{ title }}</h2>
+  <form method="POST" class="form-grid">
+    <label>Nama Barang<input type="text" name="nama" value="{{ item.nama if item else '' }}" required></label>
+    <label>Kategori<input type="text" name="kategori" value="{{ item.kategori if item else '' }}"></label>
+    <label>Jumlah<input type="number" name="jumlah" min="0" value="{{ item.jumlah if item else '0' }}"></label>
+    <label>Harga<input type="number" name="harga" min="0" step="0.01" value="{{ item.harga if item else '0.00' }}"></label>
+    <div class="form-actions">
+      <a href="{{ url_for('index') }}" class="btn-outline">Kembali</a>
+      <button type="submit" class="btn">Simpan</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

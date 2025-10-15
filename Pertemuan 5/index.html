@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Daftar Barang</h2>
+  <input type="text" id="search" placeholder="🔍 Cari barang atau kategori...">
+  <div id="data-table">
+    {% if items %}
+    <table>
+      <thead><tr><th>ID</th><th>Nama</th><th>Kategori</th><th>Jumlah</th><th>Harga</th><th>Aksi</th></tr></thead>
+      <tbody>
+        {% for i in items %}
+        <tr>
+          <td>{{ i.id }}</td><td>{{ i.nama }}</td><td>{{ i.kategori }}</td><td>{{ i.jumlah }}</td>
+          <td>Rp {{ "{:,.0f}".format(i.harga) }}</td>
+          <td>
+            <a href="{{ url_for('edit', id=i.id) }}" class="btn-sm">Edit</a>
+            <form action="{{ url_for('delete', id=i.id) }}" method="post" style="display:inline" onsubmit="return confirm('Yakin hapus?')">
+              <button type="submit" class="btn-danger">Hapus</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="empty">Belum ada data barang.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
